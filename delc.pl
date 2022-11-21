@@ -49,7 +49,7 @@ for my $i (0 .. $#remove_list)
 }
 
 
-print "Perform all deletions? [y]: ";
+print "Perform all selected deletions? [y]: ";
 $input = <STDIN>;
 
 if($input eq "y\n" or $input eq "Y\n")
