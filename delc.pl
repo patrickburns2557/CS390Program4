@@ -1,5 +1,7 @@
 #!/usr/bin/perl -w
 
+use File::Path qw(rmtree);
+
 if(@ARGV)
 {
     @file_list = @ARGV; # get the file list from the command arguments
@@ -59,8 +61,9 @@ if($input eq "y\n" or $input eq "Y\n")
     for my $i (0 .. $#remove_list)
     {
         if (-d $remove_list[$i]) #directory
-        {
-            rmdir("$remove_list[$i]");
+        {   
+            rmtree("$remove_list[$i]");
+
             if (-d $remove_list[$i]) #If the foler still exists, it wasn't empty
             {
                 print("  [$i]: $remove_list[$i] is not empty, cannot delete.\n");
