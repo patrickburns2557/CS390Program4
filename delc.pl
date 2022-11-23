@@ -13,12 +13,10 @@ else
     exit 1;
 }
 
-#@remove_list;
 
 print("Enter 'y' to select the file to remove.\n");
 print("Enter 'q' to quit file prompt.\n");
 print("Enter anything else to skip file.\n");
-
 foreach(@file_list)
 {
     
@@ -56,6 +54,11 @@ $input = <STDIN>;
 
 if($input eq "y\n" or $input eq "Y\n")
 {
+    if(scalar(@remove_list) == 0)
+    {
+        print("Nothing has been deleted.\n");
+        exit 0;
+    }
     print "DELETION RESULTS:\n";
     #iterate through the indexes, so the indexes can be printed w/o a separate counter
     for my $i (0 .. $#remove_list)
